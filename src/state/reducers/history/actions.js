@@ -6,7 +6,7 @@ import {VK_APP_CLOSE} from "../../../constants/BridgeConstants";
 export const setActivePanel = (panelId) => {
   return (dispatch, getState) => {
     const state = getState();
-    const { activePanel } = state.history;
+    const { activePanel, activeView } = state.history;
 
     if (activePanel === panelId) {
       return;
@@ -20,10 +20,23 @@ export const setActivePanel = (panelId) => {
   };
 };
 
-export const setActiveView = ({ panelId, viewId }) => ({
-  type: types.SET_ACTIVE_VIEW,
-  payload: { panelId, viewId },
-});
+export const setActiveView = ({ panelId, viewId }) => {
+  return (dispatch, getState) => {
+    const state = getState();
+    const { activePanel, activeView } = state.history;
+
+    if (activePanel === panelId) {
+      return;
+    }
+    console.log(window.history)
+    console.log(state.history)
+    window.history.pushState({ panel: panelId }, panelId);
+    dispatch({
+      type: types.SET_ACTIVE_VIEW,
+      payload: { panelId, viewId },
+    })
+  }
+};
 
 export const setPreviousPanel = () => {
   return (dispatch, getState) => {
@@ -35,6 +48,8 @@ export const setPreviousPanel = () => {
     }
 
     const newHistory = history.slice(0, history.length - 1);
+
+
 
     return dispatch({ type: types.SET_PREVIOUS_PANEL, payload: newHistory });
   };

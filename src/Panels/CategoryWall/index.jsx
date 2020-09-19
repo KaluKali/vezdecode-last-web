@@ -52,9 +52,9 @@ const CategoryWall = (props) => {
                             background: '#4986CC',
                             boxShadow:'0px 2px 4px rgba(0, 0, 0, 0.08)',
                             margin:'10px'
-                        }}><Icon28GlobeOutline fill={'#FFFFFF'} style={{alignSelf:'center'}} onClick={()=>{
+                        }} onClick={()=>{
                         dispatch(setActiveView({panelId:EMOTIONS_MAP_PANEL,viewId:MAP_VIEW}))
-                    }}/></Div>
+                    }}><Icon28GlobeOutline fill={'#FFFFFF'} style={{alignSelf:'center'}} /></Div>
                 </div>
             </FixedLayout>
         </Panel>

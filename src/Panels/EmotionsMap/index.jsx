@@ -58,6 +58,7 @@ const EmotionsMap = (props) => {
                         dispatch(setVkUser({primaryCategory: posts[`${e}`].theme}));
                         dispatch(setActiveView({panelId:CATEGORY_WALL_PANEL,viewId:ROOT_VIEW}))
                     }}
+                    onChildMouseEnter={e=>console.log(e)}
                     bootstrapURLKeys={{ key: 'AIzaSyBt25U2wgcYNGliFfLd0YEHQG3ZgPqBwfE' }}
                     defaultCenter={{
                         lat: 59.95,
@@ -72,7 +73,7 @@ const EmotionsMap = (props) => {
                             lng={item.location.longitude}
                             text={item.theme}
                             withText={true}
-                            style={{flexDirection:'column'}}
+                            style={{flexDirection:'column', position: 'absolute'}}
                         />
                     ))}
                 </GoogleMapReact>
@@ -90,10 +91,10 @@ const EmotionsMap = (props) => {
                         <Div
                             style={{background:'#fff'}}
                         >
-                            <Search after={null} onChange={(e)=>{dispatch(setVkUser({mood:e.target.value}))}}/>
+                            <Search after={null} onChange={(e)=>{setSearchText(e.target.value)}}/>
                             <HorizontalScroll>
                                 <div style={{display:'flex'}}>
-                                    { (posts.filter((postItem) => emoji[postItem.theme].toLowerCase().indexOf(searchField) > -1))
+                                    { (posts.filter((postItem) => emoji[postItem.theme].toLowerCase().indexOf(searchField.toLowerCase()) > -1))
                                         .map((item,index)=>(
                                             <div key={index} style={{
                                                 flexShrink: 0,

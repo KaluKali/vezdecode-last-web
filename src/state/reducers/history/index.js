@@ -6,6 +6,7 @@ import {HELLO_PANEL} from "../../../constants/PanelConstants";
 const initialState = {
   activeView: ROOT_VIEW,
   activePanel: HELLO_PANEL,
+  //{viewId:ROOT_VIEW, panelId:HELLO_PANEL}
   history: [HELLO_PANEL],
 };
 
@@ -25,6 +26,7 @@ const historyReducer = (state = initialState, action) => {
         ...state,
         activeView: viewId,
         activePanel: panelId,
+        history: [...state.history, panelId],
       };
     }
 
