@@ -34,7 +34,7 @@ const CategoryWall = (props) => {
         <Panel id={id}>
             <PanelHeader left={<PanelHeaderBack onClick={() => handleToPreviousPanel(dispatch)} />}>{emojiList[user.primaryCategory]}</PanelHeader>
             {(feed.filter(item=>item.theme===user.primaryCategory)).map((item, index)=>(
-                <FullFeedSnippet key={index} user={user} image={item.photo} likes={item.likes} comments={'7.2k'} />
+                <FullFeedSnippet key={index} user={user} image={item.photo} likes={item.likes} comments={'7.2k'} mood={user.mood} />
                 ))}
             <FixedLayout vertical="bottom">
                 <div

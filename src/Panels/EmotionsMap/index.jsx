@@ -58,7 +58,6 @@ const EmotionsMap = (props) => {
                         dispatch(setVkUser({primaryCategory: posts[`${e}`].theme}));
                         dispatch(setActiveView({panelId:CATEGORY_WALL_PANEL,viewId:ROOT_VIEW}))
                     }}
-                    // onChildMouseEnter={(e)=>console.log(e)}
                     bootstrapURLKeys={{ key: 'AIzaSyBt25U2wgcYNGliFfLd0YEHQG3ZgPqBwfE' }}
                     defaultCenter={{
                         lat: 59.95,

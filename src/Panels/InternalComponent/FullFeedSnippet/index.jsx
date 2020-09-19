@@ -6,7 +6,14 @@ import Icon28CommentOutline from '@vkontakte/icons/dist/28/comment_outline';
 import Icon28ViewOutline from '@vkontakte/icons/dist/28/view_outline';
 
 const FullFeedSnippet = (props) => {
-    const { user, image, likes, comments } = props;
+    const { user, image, likes, comments, mood } = props;
+
+    const moodList = {
+        '😜': 'активное',
+        '😃': 'позитивное',
+        '🙁': 'негативное',
+        '😴': 'пассивное',
+    };
 
     return (
         <Div
@@ -21,7 +28,7 @@ const FullFeedSnippet = (props) => {
                     borderRadius:'10px'
                 }}
             >
-                <SimpleCell description={'час назад • спокойное настроение'} before={<Avatar size={28} src={user.photo_100} />}>{user.first_name} {user.last_name}</SimpleCell>
+                <SimpleCell description={`час назад • ${moodList[mood]} настроение`} before={<Avatar size={28} src={user.photo_100} />}>{user.first_name} {user.last_name}</SimpleCell>
                 <div
                     style={{
                         backgroundPosition: 'center center',

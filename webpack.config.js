@@ -9,7 +9,7 @@ module.exports = (options) => ({
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: './',
     chunkFilename: '[id].chunk.js'
   },
   module: {

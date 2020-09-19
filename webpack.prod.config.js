@@ -9,7 +9,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = require('./webpack.config')({
   mode: 'production',
   entry: {
-    main: './src/index.jsx',
+    main: './src/index.js',
   },
   output: {
     filename: '[name].js',
