@@ -11,11 +11,13 @@ export const setActivePanel = (panelId) => {
     if (activePanel === panelId) {
       return;
     }
-
-    window.history.pushState({ panel: panelId }, panelId);
+    console.log(window.history)
+    console.log(state.history)
+    console.log(activePanel, activeView)
+    window.history.pushState({ panel: panelId, view:activeView }, panelId);
     dispatch({
       type: types.SET_ACTIVE_PANEL,
-      payload: panelId,
+      payload: { panelId: panelId, viewId: activeView },
     });
   };
 };
@@ -23,17 +25,15 @@ export const setActivePanel = (panelId) => {
 export const setActiveView = ({ panelId, viewId }) => {
   return (dispatch, getState) => {
     const state = getState();
-    const { activePanel, activeView } = state.history;
+    const { activePanel } = state.history;
 
     if (activePanel === panelId) {
       return;
     }
-    console.log(window.history)
-    console.log(state.history)
-    window.history.pushState({ panel: panelId }, panelId);
+    window.history.pushState({ panel: panelId, view:viewId }, panelId);
     dispatch({
       type: types.SET_ACTIVE_VIEW,
-      payload: { panelId, viewId },
+      payload: { panelId:panelId, viewId:viewId, history:{panelId: panelId, viewId: viewId }},
     })
   }
 };

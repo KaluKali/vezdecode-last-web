@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {useDispatch, useSelector} from "react-redux";
 import GoogleMapReact from 'google-map-react';
 import {getBoundsPosts, setVkUser} from "../../state/reducers/vk/actions";
-import {setActiveView} from "../../state/reducers/history/actions";
+import {setActiveView, setPreviousPanel} from "../../state/reducers/history/actions";
 import {CATEGORY_WALL_PANEL} from "../../constants/PanelConstants";
 import {ROOT_VIEW} from "../../constants/ViewConstants";
 // TEMPLATE
