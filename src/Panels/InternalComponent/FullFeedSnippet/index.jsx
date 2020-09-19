@@ -25,7 +25,8 @@ const FullFeedSnippet = (props) => {
                 style={{
                     backgroundColor:'#FFFFFF',
                     boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.08)',
-                    borderRadius:'10px'
+                    borderRadius:'10px',
+                    backgroundRepeat: 'no-repeat'
                 }}
             >
                 <SimpleCell description={`час назад • ${moodList[mood]} настроение`} before={<Avatar size={28} src={user.photo_100} />}>{user.first_name} {user.last_name}</SimpleCell>
